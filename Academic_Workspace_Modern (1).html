@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Academic Workspaces</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:#172b4d;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 0% 0%,rgba(45,120,220,.10),transparent 32%),
+        radial-gradient(circle at 100% 100%,rgba(30,200,170,.09),transparent 32%),
+        linear-gradient(145deg,#eef4fb,#ffffff,#f0f8f7);
+}
+
+
+/* =================================
+   APP
+================================= */
+
+.app{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    padding:18px 12px 35px;
+}
+
+
+/* =================================
+   PROFILE AREA
+================================= */
+
+.profile-area{
+    width:100%;
+    margin-bottom:24px;
+}
+
+
+/* =================================
+   PROFILE FORM
+================================= */
+
+.profile-form{
+
+    position:relative;
+    overflow:hidden;
+
+    padding:25px 21px;
+
+    border-radius:27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e6f2ff,
+            #ffffff 55%,
+            #f1f8ff
+        );
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 12px 35px rgba(38,60,95,.10);
+}
+
+
+.profile-form::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    right:-85px;
+    top:-105px;
+
+    background:rgba(45,120,220,.08);
+
+}
+
+
+.profile-form::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    left:-60px;
+    bottom:-75px;
+
+    background:rgba(30,200,170,.06);
+
+}
+
+
+.profile-heading{
+
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    font-weight:900;
+
+    color:#19345e;
+}
+
+
+.profile-subheading{
+
+    position:relative;
+    z-index:2;
+
+    margin-top:6px;
+
+    max-width:560px;
+
+    font-size:11px;
+    line-height:1.55;
+
+    color:#718097;
+}
+
+
+.form-group{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:14px;
+}
+
+
+.form-label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:9px;
+    font-weight:800;
+
+    color:#5e6f86;
+}
+
+
+.form-input{
+
+    width:100%;
+    height:44px;
+
+    padding:0 14px;
+
+    border-radius:13px;
+
+    border:1px solid #dce6f1;
+
+    outline:none;
+
+    background:rgba(255,255,255,.92);
+
+    color:#19345e;
+
+    font-family:inherit;
+
+    font-size:11px;
+
+    transition:.2s ease;
+}
+
+
+.form-input:focus{
+
+    border-color:#4b9ce8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(75,156,232,.10);
+}
+
+
+.save-profile{
+
+    position:relative;
+    z-index:3;
+
+    width:100%;
+    height:45px;
+
+    margin-top:17px;
+
+    border:0;
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1768c2,
+            #1682e8
+        );
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:11px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(23,104,194,.22);
+
+    transition:.2s ease;
+}
+
+
+.save-profile:active{
+    transform:scale(.97);
+}
+
+
+/* =================================
+   LARGE WELCOME HERO
+================================= */
+
+.welcome-card{
+
+    position:relative;
+    overflow:hidden;
+
+    min-height:245px;
+
+    padding:28px 24px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dfefff 0%,
+            #ffffff 48%,
+            #edf8f8 100%
+        );
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 14px 40px
+        rgba(38,60,95,.11);
+}
+
+
+.welcome-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    right:-100px;
+    top:-135px;
+
+    background:
+        rgba(40,120,220,.09);
+}
+
+
+.welcome-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    left:-110px;
+    bottom:-125px;
+
+    background:
+        rgba(30,190,165,.07);
+}
+
+
+/* Decorative small circles */
+
+.welcome-decoration{
+
+    position:absolute;
+
+    right:34px;
+    bottom:28px;
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(45,120,220,.10);
+}
+
+
+/* Avatar */
+
+.profile-avatar{
+
+    position:relative;
+    z-index:3;
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1768c2,
+            #1682e8
+        );
+
+    color:#fff;
+
+    font-size:23px;
+    font-weight:900;
+
+    box-shadow:
+        0 10px 24px
+        rgba(23,104,194,.24);
+}
+
+
+.welcome-small{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:18px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
+    color:#71829a;
+}
+
+
+.welcome-name{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:4px;
+
+    font-size:29px;
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    letter-spacing:-.7px;
+
+    color:#19345e;
+}
+
+
+.welcome-designation{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    color:#1682e8;
+}
+
+
+.welcome-department{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:4px;
+
+    font-size:10px;
+
+    color:#718097;
+}
+
+
+/* Edit */
+
+.edit-profile{
+
+    position:absolute;
+
+    z-index:5;
+
+    top:20px;
+    right:20px;
+
+    width:35px;
+    height:35px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    color:#55718f;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 12px
+        rgba(38,60,95,.06);
+}
+
+
+/* =================================
+   SECTION HEADER
+================================= */
+
+.section-header{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-top:24px;
+    margin-bottom:11px;
+}
+
+
+.section-title{
+
+    font-size:15px;
+
+    font-weight:900;
+
+    color:#1b3154;
+}
+
+
+.section-label{
+
+    padding:5px 9px;
+
+    border-radius:9px;
+
+    background:#edf3fb;
+
+    color:#8491a5;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+
+/* =================================
+   RESOURCE GRID
+================================= */
+
+.resources-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:11px;
+}
+
+
+/* =================================
+   RESOURCE CARD
+================================= */
+
+.resource-card{
+
+    position:relative;
+    overflow:hidden;
+
+    min-height:178px;
+
+    padding:19px 17px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    text-decoration:none;
+    color:inherit;
+
+    border-radius:22px;
+
+    background:#fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 8px 24px
+        rgba(38,60,95,.075);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+
+.resource-card:active{
+    transform:scale(.97);
+}
+
+
+.resource-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:125px;
+    height:125px;
+
+    right:-38px;
+    bottom:-60px;
+
+    border-radius:50%;
+
+    background:
+        rgba(116,148,225,.07);
+
+    pointer-events:none;
+}
+
+
+.resource-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    right:20px;
+    bottom:-40px;
+
+    border-radius:50%;
+
+    background:
+        rgba(116,148,225,.04);
+
+    pointer-events:none;
+}
+
+
+/* =================================
+   ICONS
+================================= */
+
+.resource-icon{
+
+    position:relative;
+    z-index:3;
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    font-size:24px;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.65);
+}
+
+
+.icon-blue{
+    background:linear-gradient(135deg,#cfe8ff,#b6d9ff);
+}
+
+.icon-gold{
+    background:linear-gradient(135deg,#d5f5e8,#bdebd9);
+}
+
+.icon-yellow{
+    background:linear-gradient(135deg,#ffe8b3,#ffd78c);
+}
+
+.icon-purple{
+    background:linear-gradient(135deg,#e3d1ff,#ceb1ff);
+}
+
+.icon-pink{
+    background:linear-gradient(135deg,#ffd7e8,#ffc0da);
+}
+
+.icon-grey{
+    background:linear-gradient(135deg,#e8edf5,#dce3ee);
+}
+
+.icon-discipline{
+    background:linear-gradient(135deg,#ffe0df,#ffc7c5);
+}
+
+.icon-teal{
+    background:linear-gradient(135deg,#d2f5f1,#b9e9e4);
+}
+
+
+/* =================================
+   CARD TEXT
+================================= */
+
+.resource-title{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:17px;
+
+    font-size:16.5px;
+
+    font-weight:900;
+
+    letter-spacing:-.3px;
+
+    color:#19345e;
+}
+
+
+.resource-description{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:5px;
+
+    max-width:220px;
+
+    font-size:10px;
+
+    line-height:1.45;
+
+    color:#7d8797;
+}
+
+
+/* =================================
+   ARROW
+================================= */
+
+.resource-arrow{
+
+    position:absolute;
+
+    z-index:5;
+
+    top:15px;
+    right:15px;
+
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#8b96a5;
+
+    background:
+        rgba(255,255,255,.82);
+
+    font-size:15px;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:699px){
+
+    .app{
+        padding:
+            14px 10px 28px;
+    }
+
+
+    .welcome-card{
+
+        min-height:245px;
+
+        padding:
+            25px 20px;
+
+        border-radius:27px;
+    }
+
+
+    .profile-avatar{
+
+        width:68px;
+        height:68px;
+
+        border-radius:20px;
+
+        font-size:22px;
+    }
+
+
+    .welcome-name{
+
+        font-size:27px;
+    }
+
+
+    .welcome-designation{
+
+        font-size:11px;
+    }
+
+
+    .welcome-department{
+
+        font-size:9px;
+    }
+
+
+    .resources-grid{
+
+        gap:10px;
+    }
+
+
+    .resource-card{
+
+        min-height:175px;
+
+        padding:
+            18px 16px;
+
+        border-radius:21px;
+    }
+
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media(max-width:380px){
+
+    .app{
+        padding:
+            10px 8px 22px;
+    }
+
+
+    .profile-form{
+        padding:20px 16px;
+        border-radius:23px;
+    }
+
+
+    .profile-heading{
+        font-size:20px;
+    }
+
+
+    .welcome-card{
+
+        min-height:225px;
+
+        padding:
+            22px 17px;
+
+        border-radius:24px;
+    }
+
+
+    .profile-avatar{
+
+        width:61px;
+        height:61px;
+
+        border-radius:18px;
+
+        font-size:20px;
+    }
+
+
+    .welcome-name{
+
+        font-size:24px;
+    }
+
+
+    .edit-profile{
+
+        top:16px;
+        right:16px;
+
+        width:32px;
+        height:32px;
+    }
+
+
+    .resource-card{
+
+        min-height:165px;
+
+        padding:
+            16px 14px;
+
+        border-radius:19px;
+    }
+
+
+    .resource-icon{
+
+        width:46px;
+        height:46px;
+
+        border-radius:13px;
+
+        font-size:21px;
+    }
+
+
+    .resource-title{
+
+        margin-top:15px;
+
+        font-size:14.5px;
+    }
+
+
+    .resource-description{
+
+        font-size:8.8px;
+    }
+
+}
+
+
+/* =================================
+   DESKTOP
+================================= */
+
+@media(min-width:700px){
+
+    .app{
+
+        padding:
+            28px 24px 45px;
+    }
+
+
+    .welcome-card{
+
+        min-height:310px;
+
+        padding:
+            38px 35px;
+
+        border-radius:32px;
+    }
+
+
+    .profile-avatar{
+
+        width:82px;
+        height:82px;
+
+        border-radius:25px;
+
+        font-size:27px;
+    }
+
+
+    .welcome-small{
+
+        margin-top:21px;
+
+        font-size:10px;
+    }
+
+
+    .welcome-name{
+
+        font-size:36px;
+    }
+
+
+    .welcome-designation{
+
+        font-size:14px;
+    }
+
+
+    .welcome-department{
+
+        font-size:11px;
+    }
+
+
+    .resources-grid{
+
+        gap:14px;
+    }
+
+
+    .resource-card{
+
+        min-height:210px;
+
+        padding:24px;
+
+        border-radius:26px;
+    }
+
+
+    .resource-icon{
+
+        width:61px;
+        height:61px;
+
+        font-size:29px;
+    }
+
+
+    .resource-title{
+
+        font-size:19px;
+    }
+
+
+    .resource-description{
+
+        font-size:11.5px;
+    }
+
+}
+
+
+/* =================================
+   REDUCE MOTION
+================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        transition:none !important;
+    }
+
+}
+
+
+/* PROFILE PHOTO */
+.profile-photo-wrap{
+    position:relative;
+    z-index:3;
+    width:92px;
+    margin-top:16px;
+}
+.profile-photo-preview{
+    width:92px;
+    height:92px;
+    border-radius:26px;
+    object-fit:cover;
+    display:block;
+    background:linear-gradient(135deg,#dcecff,#eef6ff);
+    border:3px solid rgba(255,255,255,.95);
+    box-shadow:0 8px 20px rgba(38,60,95,.12);
+}
+.photo-upload-label{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    margin-top:9px;
+    padding:0 13px;
+    border-radius:11px;
+    background:rgba(255,255,255,.88);
+    border:1px solid #dce6f1;
+    color:#355777;
+    font-size:9px;
+    font-weight:800;
+    cursor:pointer;
+}
+.photo-note{
+    margin-top:4px;
+    font-size:8px;
+    color:#8491a5;
+}
+.welcome-avatar-photo{
+    padding:0;
+    background:#fff;
+    overflow:hidden;
+}
+.welcome-avatar-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.icon-teal{
+    background:linear-gradient(135deg,#d2f5f1,#b9e9e4);
+}
+@media(max-width:699px){
+    .profile-photo-wrap{width:82px;}
+    .profile-photo-preview{width:82px;height:82px;}
+}
+
+
+/* =================================
+   MODERN RESPONSIVE DASHBOARD + GLASS NAV
+================================= */
+.bottom-nav{
+    position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+    z-index:9999;display:flex;align-items:center;gap:6px;padding:7px;
+    border:1px solid rgba(255,255,255,.72);border-radius:24px;
+    background:rgba(255,255,255,.58);backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    box-shadow:0 16px 45px rgba(35,55,85,.18), inset 0 1px 0 rgba(255,255,255,.8);
+}
+.nav-item{position:relative;min-width:74px;height:54px;padding:6px 13px;border:0;border-radius:18px;background:transparent;color:#60718a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:700 9px inherit;cursor:pointer;transition:.28s cubic-bezier(.2,.8,.2,1)}
+.nav-icon{font-size:21px;line-height:1}.nav-item.active{color:#1768c2;background:rgba(255,255,255,.78);box-shadow:0 7px 18px rgba(40,75,115,.12),inset 0 1px 0 #fff}.nav-item:active{transform:scale(.92)}
+.dashboard-view{display:none;animation:tabIn .35s ease}.dashboard-view.active{display:block}@keyframes tabIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}.tool-card{min-height:145px;padding:20px;border-radius:25px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 28px rgba(38,60,95,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);text-decoration:none;color:inherit;transition:.2s}.tool-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(38,60,95,.13)}
+.tool-card strong{display:block;margin-top:12px;font-size:16px;color:#19345e}.tool-card span{display:block;margin-top:5px;font-size:10px;color:#7d8797}
+.workspace-title{margin-top:24px;font-size:16px;font-weight:900;color:#19345e}.workspace-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:13px}.workspace-card{position:relative;min-height:175px;border-radius:50%;aspect-ratio:1/1;padding:34px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;text-decoration:none;color:#19345e;background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(231,242,255,.62));border:1px solid rgba(255,255,255,.95);box-shadow:0 18px 45px rgba(38,60,95,.12),inset 0 1px 0 #fff;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:.28s}.workspace-card:hover{transform:translateY(-6px) scale(1.02)}.workspace-card .ws-icon{font-size:30px}.workspace-card .ws-name{margin-top:10px;font-size:17px;font-weight:900}.workspace-card .ws-link{margin-top:5px;font-size:9px;color:#7d8797}.workspace-edit{position:absolute;top:12px;right:16px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(255,255,255,.75);cursor:pointer;color:#58708c}
+.dashboard-shell{display:none}
+@media(min-width:700px){
+ body{padding-bottom:100px}
+ .app{max-width:1360px;padding:20px 28px 120px;display:grid;grid-template-columns:300px 1fr;column-gap:18px;align-items:start}
+ .dashboard-shell{display:block}
+ .desktop-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+ .desktop-brand{font-size:13px;font-weight:900;letter-spacing:.3px;color:#19345e}
+ .desktop-status{padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.9);font-size:8px;color:#718097}
+ .profile-area{grid-column:1;margin:0;width:300px}
+ .welcome-card{min-height:205px;height:205px;padding:24px 22px;border-radius:27px}
+ .profile-avatar{width:60px;height:60px;border-radius:18px;font-size:21px}
+ .welcome-small{margin-top:12px;font-size:8px}
+ .welcome-name{font-size:25px}
+ .welcome-designation{font-size:11px;margin-top:5px}
+ .welcome-department{font-size:9px}
+ .edit-profile{top:15px;right:15px;width:31px;height:31px;border-radius:10px}
+ .profile-form{padding:18px 17px;border-radius:24px}
+ .profile-form .profile-photo-wrap,.profile-photo-preview{width:72px}
+ .profile-photo-preview{height:72px;border-radius:20px}
+ .workspace-panel{grid-column:2!important;display:block!important;margin:0!important;height:205px!important;padding:17px 18px!important;border-radius:27px;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.82);box-shadow:0 14px 40px rgba(38,60,95,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+ .workspace-title{margin:0 0 8px;font-size:14px}
+ .workspace-grid{gap:12px;margin-top:0;grid-template-columns:repeat(3,1fr)}
+ .workspace-card{min-height:135px;height:135px;padding:18px 10px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.98),rgba(225,239,255,.68) 58%,rgba(208,230,255,.58));box-shadow:0 12px 28px rgba(38,60,95,.11),inset 0 1px 0 #fff;}
+ .workspace-card:before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(255,255,255,.48);pointer-events:none}
+ .workspace-card .ws-icon{font-size:22px}
+ .workspace-card .ws-name{margin-top:7px;font-size:12px}
+ .workspace-card .ws-link{font-size:7px;margin-top:3px}
+ .workspace-edit{top:9px;right:12px;width:23px;height:23px;font-size:10px;background:rgba(255,255,255,.82);box-shadow:0 4px 10px rgba(38,60,95,.09);z-index:5}
+ .section-header{grid-column:1 / -1;margin-top:18px}
+ .resources-grid{grid-column:1 / -1;grid-template-columns:repeat(4,1fr);gap:14px}
+ .resource-card{min-height:180px}
+ .resource-title{font-size:17px}
+ .bottom-nav{bottom:20px}
+}
+@media(max-width:699px){
+ body{padding-bottom:88px}
+ .app{padding-top:10px}
+ .bottom-nav{bottom:12px}
+ .nav-item{min-width:68px}
+ .desktop-topbar,.dashboard-shell{display:none}
+ .welcome-card{min-height:195px;padding:19px 17px;border-radius:23px}
+ .profile-form{padding:17px 15px;border-radius:22px}
+ .profile-heading{font-size:19px}
+ .profile-subheading{font-size:9px}
+ .profile-photo-wrap{width:70px;margin-top:10px}
+ .profile-photo-preview{width:70px;height:70px;border-radius:19px}
+ .welcome-card .profile-avatar{width:57px;height:57px;border-radius:17px;font-size:19px}
+ .welcome-small{margin-top:11px;font-size:8px}
+ .welcome-name{font-size:22px}
+ .welcome-designation{font-size:10px;margin-top:5px}
+ .welcome-department{font-size:8.5px}
+ .edit-profile{top:13px;right:13px;width:30px;height:30px;border-radius:9px}
+ .workspace-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+ .workspace-card{min-height:92px;height:92px;padding:14px 7px;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.98),rgba(229,241,255,.72) 60%,rgba(211,231,248,.58));box-shadow:0 9px 20px rgba(38,60,95,.10),inset 0 1px 0 #fff}
+ .workspace-card:before{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(255,255,255,.5);pointer-events:none}
+ .workspace-card .ws-name{font-size:9.5px;margin-top:5px}
+ .workspace-card .ws-icon{font-size:18px}
+ .workspace-card .ws-link{font-size:6.5px;margin-top:2px}
+ .workspace-edit{top:5px;right:6px;width:20px;height:20px;font-size:9px}
+ .tool-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+ .tool-card{min-height:120px;padding:15px}
+ .tool-card strong{font-size:13px}
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =================================
+         PROFILE AREA
+    ================================= -->
+
+    <section
+        class="profile-area"
+        id="profileArea"
+    >
+
+
+        <!-- =================================
+             PROFILE FORM
+        ================================= -->
+
+        <div
+            class="profile-form"
+            id="profileForm"
+        >
+
+            <div class="profile-heading">
+                Create Your Profile
+            </div>
+
+            <div class="profile-subheading">
+                Add your basic details to personalize
+                your academic workspace.
+            </div>
+
+            <div class="profile-photo-wrap">
+
+                <img
+                    class="profile-photo-preview"
+                    id="profilePhotoPreview"
+                    alt="Profile photo preview"
+                    src=""
+                    style="display:none;"
+                >
+
+                <div
+                    class="profile-avatar"
+                    id="profilePhotoPlaceholder"
+                    style="width:92px;height:92px;border-radius:26px;"
+                >
+                    👤
+                </div>
+
+                <label
+                    class="photo-upload-label"
+                    for="profilePhoto"
+                >
+                    📷 Add Profile Photo
+                </label>
+
+                <input
+                    id="profilePhoto"
+                    type="file"
+                    accept="image/*"
+                    style="display:none;"
+                    onchange="handlePhoto(event)"
+                >
+
+                <div class="photo-note">
+                    Optional • JPG, PNG or WEBP
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="profileName"
+                >
+                    Name
+                </label>
+
+                <input
+                    class="form-input"
+                    id="profileName"
+                    type="text"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="profileDepartment"
+                >
+                    Department
+                </label>
+
+                <input
+                    class="form-input"
+                    id="profileDepartment"
+                    type="text"
+                    placeholder="e.g. Department of Management"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="profileDesignation"
+                >
+                    Designation
+                </label>
+
+                <input
+                    class="form-input"
+                    id="profileDesignation"
+                    type="text"
+                    placeholder="e.g. Assistant Professor"
+                >
+
+            </div>
+
+
+            <button
+                class="save-profile"
+                onclick="saveProfile()"
+            >
+                Continue
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             LARGE WELCOME CARD
+        ================================= -->
+
+        <div
+            class="welcome-card"
+            id="welcomeCard"
+            style="display:none;"
+        >
+
+            <div
+                class="welcome-decoration"
+            ></div>
+
+
+            <div
+                class="profile-avatar"
+                id="welcomeAvatar"
+            >
+                A
+            </div>
+
+
+            <div class="welcome-small">
+                WELCOME BACK
+            </div>
+
+
+            <div
+                class="welcome-name"
+                id="welcomeName"
+            >
+                Name
+            </div>
+
+
+            <div
+                class="welcome-designation"
+                id="welcomeDesignation"
+            >
+                Designation
+            </div>
+
+
+            <div
+                class="welcome-department"
+                id="welcomeDepartment"
+            >
+                Department
+            </div>
+
+
+            <button
+                class="edit-profile"
+                onclick="editProfile()"
+                aria-label="Edit Profile"
+                title="Edit Profile"
+            >
+                ✎
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="workspace-panel" id="workspacePanel" style="display:none;">
+        <div class="workspace-title">My Workspaces</div>
+        <div class="workspace-grid" id="desktopWorkspaceGrid"></div>
+    </section>
+
+    <!-- =================================
+         ACADEMIC RESOURCES
+    ================================= -->
+
+    <div class="section-header">
+
+        <div class="section-title">
+            Academic Resources
+        </div>
+
+        <div class="section-label">
+            08 SERVICES
+        </div>
+
+    </div>
+
+
+    <section class="resources-grid">
+
+
+        <!-- ATTENDANCE -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsbba/?s=334055"
+        >
+
+            <div class="resource-icon icon-blue">
+                ✓
+            </div>
+
+            <div class="resource-title">
+                Attendance
+            </div>
+
+            <div class="resource-description">
+                Manage and record daily student attendance.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- RESULTS -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsbba/?s=334056"
+        >
+
+            <div class="resource-icon icon-gold">
+                🏆
+            </div>
+
+            <div class="resource-title">
+                Results
+            </div>
+
+            <div class="resource-description">
+                Check examination results and academic performance.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- ASSIGNMENTS -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsbba/?s=334091&url=https%3A%2F%2Fwww.socialcreator.com%2Fscmpsapp%2F%3Fs%3D334353"
+        >
+
+            <div class="resource-icon icon-yellow">
+                📝
+            </div>
+
+            <div class="resource-title">
+                Assignments
+            </div>
+
+            <div class="resource-description">
+                Access assignments, submissions and academic work.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- STUDENTS DATA -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsbba/?s=334185"
+        >
+
+            <div class="resource-icon icon-purple">
+                👥
+            </div>
+
+            <div class="resource-title">
+                Students Data
+            </div>
+
+            <div class="resource-description">
+                Access student records and academic information.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- TASKS -->
+
+        <a
+            class="resource-card"
+            href="go:todo"
+        >
+
+            <div class="resource-icon icon-pink">
+                ✓
+            </div>
+
+            <div class="resource-title">
+                Tasks
+            </div>
+
+            <div class="resource-description">
+                Manage academic tasks, activities and reminders.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- TIMETABLE -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsbba/?s=334240"
+        >
+
+            <div class="resource-icon icon-grey">
+                ⏰
+            </div>
+
+            <div class="resource-title">
+                Timetable
+            </div>
+
+            <div class="resource-description">
+                View class and individual timetables.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- DISCIPLINE -->
+
+        <a
+            class="resource-card"
+            href="https://www.socialcreator.com/scmpsapp/?s=334350"
+        >
+
+            <div class="resource-icon icon-discipline">
+                🛡️
+            </div>
+
+            <div class="resource-title">
+                Discipline
+            </div>
+
+            <div class="resource-description">
+                Access discipline guidelines, notices
+                and student conduct information.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- UTILITIES -->
+
+        <a
+            class="resource-card"
+            href="go:utilities"
+        >
+
+            <div class="resource-icon icon-teal">
+                🧰
+            </div>
+
+            <div class="resource-title">
+                Utilities
+            </div>
+
+            <div class="resource-description">
+                Access useful academic tools, calendar,
+                notes, calculator and other utilities.
+            </div>
+
+            <div class="resource-arrow">
+                →
+            </div>
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- MODERN TAB VIEWS -->
+    <section id="toolsView" class="dashboard-view">
+        <div class="section-header"><div class="section-title">Tools</div><div class="section-label">QUICK ACCESS</div></div>
+        <div class="tool-grid">
+            <a class="tool-card" href="go:todo"><div class="resource-icon icon-pink">✓</div><strong>Tasks</strong><span>Open your task workspace.</span></a>
+            <a class="tool-card" href="go:utilities"><div class="resource-icon icon-teal">🧰</div><strong>Utilities</strong><span>Calendar, notes, calculator and more.</span></a>
+            <a class="tool-card" href="#" onclick="editProfile();return false;"><div class="resource-icon icon-blue">👤</div><strong>Profile</strong><span>Edit your profile details.</span></a>
+        </div>
+    </section>
+
+    <section id="moreView" class="dashboard-view">
+        <div class="section-header"><div class="section-title">More</div><div class="section-label">YOUR WORKSPACES</div></div>
+        <div class="workspace-grid" id="mobileWorkspaceGrid"></div>
+    </section>
+
+</div>
+
+<!-- Bottom Glass Navigation -->
+<nav class="bottom-nav" aria-label="Main navigation">
+    <button class="nav-item active" data-tab="home" onclick="switchTab('home')"><span class="nav-icon">⌂</span><span>Home</span></button>
+    <button class="nav-item" data-tab="tools" onclick="switchTab('tools')"><span class="nav-icon">✦</span><span>Tools</span></button>
+    <button class="nav-item" data-tab="more" onclick="switchTab('more')"><span class="nav-icon">•••</span><span>More</span></button>
+</nav>
+
+<script>
+
+
+
+/* =================================
+   TAB NAVIGATION + EDITABLE WORKSPACES
+================================= */
+const WORKSPACE_KEY = "academic_workspace_workspaces";
+const defaultWorkspaces = [
+    {name:"Workspace 1", icon:"◉", url:"#"},
+    {name:"Workspace 2", icon:"◌", url:"#"},
+    {name:"Workspace 3", icon:"◇", url:"#"}
+];
+function getWorkspaces(){
+    try{return JSON.parse(localStorage.getItem(WORKSPACE_KEY)) || defaultWorkspaces;}catch(e){return defaultWorkspaces;}
+}
+function saveWorkspaces(list){localStorage.setItem(WORKSPACE_KEY,JSON.stringify(list));}
+function renderWorkspaces(){
+    const list=getWorkspaces();
+    ["desktopWorkspaceGrid","mobileWorkspaceGrid"].forEach(id=>{
+        const el=document.getElementById(id); if(!el)return;
+        el.innerHTML=list.map((w,i)=>`<a class="workspace-card" href="${escapeAttr(w.url||'#')}" target="_blank" rel="noopener" onclick="if((wurl=getWorkspaces()[${i}].url)==='#'){event.preventDefault();editWorkspace(${i})}"><button class="workspace-edit" type="button" onclick="event.preventDefault();event.stopPropagation();editWorkspace(${i})" aria-label="Edit workspace">✎</button><div class="ws-icon">${escapeHtml(w.icon||'◉')}</div><div class="ws-name">${escapeHtml(w.name||('Workspace '+(i+1)))}</div><div class="ws-link">${w.url&&w.url!=='#'?'Open workspace':'Add link'}</div></a>`).join('');
+    });
+}
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function escapeAttr(v){return escapeHtml(v).replace(/javascript:/gi,'');}
+function editWorkspace(i){
+    const list=getWorkspaces(), w=list[i]||{};
+    const name=prompt('Workspace name:',w.name||''); if(name===null)return;
+    const url=prompt('Workspace link (URL / app link):',w.url||''); if(url===null)return;
+    const icon=prompt('Icon / emoji:',w.icon||'◉'); if(icon===null)return;
+    list[i]={name:name.trim()||('Workspace '+(i+1)),url:url.trim()||'#',icon:icon.trim()||'◉'};
+    saveWorkspaces(list);renderWorkspaces();
+}
+function switchTab(tab){
+    document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+    const isHome=tab==='home';
+    document.querySelector('.profile-area').style.display=isHome?'':'none';
+    document.querySelector('.section-header').style.display=isHome?'':'none';
+    document.querySelector('.resources-grid').style.display=isHome?'':'none';
+    document.getElementById('toolsView').classList.toggle('active',tab==='tools');
+    document.getElementById('moreView').classList.toggle('active',tab==='more');
+    document.getElementById('workspacePanel').style.display=(isHome && window.innerWidth>=700)?'block':'none';
+    if(tab==='more'||isHome)renderWorkspaces();
+}
+window.addEventListener('resize',()=>switchTab(document.querySelector('.nav-item.active')?.dataset.tab||'home'));
+
+/* =================================
+   PROFILE STORAGE
+================================= */
+
+const PROFILE_KEY =
+    "academic_workspace_profile";
+
+
+/* =================================
+   INITIALIZE
+================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        initializeProfile();
+        renderWorkspaces();
+        switchTab("home");
+
+    }
+);
+
+
+/* =================================
+   INITIALIZE PROFILE
+================================= */
+
+function initializeProfile(){
+
+    const saved =
+        localStorage.getItem(
+            PROFILE_KEY
+        );
+
+
+    if(!saved){
+
+        showProfileForm();
+
+        return;
+
+    }
+
+
+    try{
+
+        const profile =
+            JSON.parse(saved);
+
+
+        if(
+            profile.name &&
+            profile.department &&
+            profile.designation
+        ){
+
+            showWelcome(profile);
+
+        }else{
+
+            showProfileForm();
+
+        }
+
+    }catch(error){
+
+        showProfileForm();
+
+    }
+
+}
+
+
+/* =================================
+   SHOW FORM
+================================= */
+
+function showProfileForm(){
+
+    document.getElementById(
+        "profileForm"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "welcomeCard"
+    ).style.display = "none";
+
+}
+
+
+/* =================================
+   SAVE PROFILE
+================================= */
+
+function saveProfile(){
+
+    const name =
+        document.getElementById(
+            "profileName"
+        ).value.trim();
+
+
+    const department =
+        document.getElementById(
+            "profileDepartment"
+        ).value.trim();
+
+
+    const designation =
+        document.getElementById(
+            "profileDesignation"
+        ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter your name."
+        );
+
+        return;
+
+    }
+
+
+    if(!department){
+
+        alert(
+            "Please enter your department."
+        );
+
+        return;
+
+    }
+
+
+    if(!designation){
+
+        alert(
+            "Please enter your designation."
+        );
+
+        return;
+
+    }
+
+
+    const profile = {
+
+        name:name,
+
+        department:department,
+
+        designation:designation,
+
+        photo:
+            window.currentProfilePhoto || ""
+
+    };
+
+
+    localStorage.setItem(
+        PROFILE_KEY,
+        JSON.stringify(profile)
+    );
+
+
+    showWelcome(profile);
+
+}
+
+
+/* =================================
+   PROFILE PHOTO
+================================= */
+
+function handlePhoto(event){
+
+    const file =
+        event.target.files &&
+        event.target.files[0];
+
+    if(!file) return;
+
+    if(!file.type.startsWith("image/")){
+
+        alert("Please select an image file.");
+        event.target.value = "";
+        return;
+    }
+
+    if(file.size > 3 * 1024 * 1024){
+
+        alert("Please choose an image smaller than 3 MB.");
+        event.target.value = "";
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const src = e.target.result;
+
+        document.getElementById(
+            "profilePhotoPreview"
+        ).src = src;
+
+        document.getElementById(
+            "profilePhotoPreview"
+        ).style.display = "block";
+
+        document.getElementById(
+            "profilePhotoPlaceholder"
+        ).style.display = "none";
+
+        window.currentProfilePhoto = src;
+    };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* =================================
+   SHOW WELCOME
+================================= */
+
+function showWelcome(profile){
+
+    document.getElementById(
+        "profileForm"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "welcomeCard"
+    ).style.display = "flex";
+
+
+    document.getElementById(
+        "welcomeName"
+    ).textContent =
+        profile.name;
+
+
+    document.getElementById(
+        "welcomeDesignation"
+    ).textContent =
+        profile.designation;
+
+
+    document.getElementById(
+        "welcomeDepartment"
+    ).textContent =
+        profile.department;
+
+
+    const avatar =
+        document.getElementById(
+            "welcomeAvatar"
+        );
+
+    if(profile.photo){
+
+        avatar.classList.add(
+            "welcome-avatar-photo"
+        );
+
+        avatar.innerHTML =
+            '<img src="' +
+            profile.photo.replace(/"/g,'"') +
+            '" alt="Profile Photo">';
+
+    }else{
+
+        avatar.classList.remove(
+            "welcome-avatar-photo"
+        );
+
+        avatar.innerHTML =
+            getInitials(profile.name);
+
+    }
+
+}
+
+
+/* =================================
+   GET INITIALS
+================================= */
+
+function getInitials(name){
+
+    const words =
+        name
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+
+
+    if(words.length === 1){
+
+        return words[0]
+            .substring(0,2)
+            .toUpperCase();
+
+    }
+
+
+    return (
+        words[0].charAt(0) +
+        words[words.length - 1].charAt(0)
+    ).toUpperCase();
+
+}
+
+
+/* =================================
+   EDIT PROFILE
+================================= */
+
+function editProfile(){
+
+    const saved =
+        localStorage.getItem(
+            PROFILE_KEY
+        );
+
+
+    if(!saved){
+
+        showProfileForm();
+
+        return;
+
+    }
+
+
+    try{
+
+        const profile =
+            JSON.parse(saved);
+
+
+        document.getElementById(
+            "profileName"
+        ).value =
+            profile.name || "";
+
+
+        document.getElementById(
+            "profileDepartment"
+        ).value =
+            profile.department || "";
+
+
+        document.getElementById(
+            "profileDesignation"
+        ).value =
+            profile.designation || "";
+
+        window.currentProfilePhoto =
+            profile.photo || "";
+
+        const preview =
+            document.getElementById(
+                "profilePhotoPreview"
+            );
+
+        const placeholder =
+            document.getElementById(
+                "profilePhotoPlaceholder"
+            );
+
+        if(profile.photo){
+
+            preview.src = profile.photo;
+            preview.style.display = "block";
+            placeholder.style.display = "none";
+
+        }else{
+
+            preview.src = "";
+            preview.style.display = "none";
+            placeholder.style.display = "flex";
+
+        }
+
+
+        showProfileForm();
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+
+    }catch(error){
+
+        showProfileForm();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
+
